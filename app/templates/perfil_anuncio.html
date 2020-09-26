@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="{{anuncio.foto_capa.url}}" style="width:100%">
+            <div class="caption">
+            </div>
+        </div>
+      </div>
+    <div class="col-md-8">
+        <ul class="list-group">
+            <li class="list-group-item">Nome: {{anuncio.nome}}</li>
+            <li class="list-group-item">Descrição: {{anuncio.descricao}}</li>
+            <li class="list-group-item">Quantidade: {{anuncio.quantidade}}</li>
+            <li class="list-group-item">Autor:{{anuncio.perfil}}</li>
+            <li class="list-group-item">Data de Publicação: {{anuncio.data}}</li>
+
+        </ul>
+        <a href="{% url 'solicitar_transacao' pk=anuncio.pk %}"> Eu quero </a>
+    </div>
+</div>
+
+{% endblock content %}
